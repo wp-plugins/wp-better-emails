@@ -1,7 +1,7 @@
 === WP Better Emails ===
 Tags: email, emails, templates, notification, html emails, html, wp_mail
 Requires at least: 2.8
-Tested up to: 2.8
+Tested up to: 3.1
 Stable tag: 0.1
 
 Adds a customizable good looking HTML template to all WP default plain/text emails and lets you set
