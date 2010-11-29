@@ -12,12 +12,22 @@ Author URI: http://
  * Hooks & actions
  */
 register_activation_hook(__FILE__,'wpbe_register_options');
+add_action('init', 'wpbe_init_textdomain');
 add_action('admin_init', 'wpbe_plugin_init');
 add_action('admin_menu', 'wpbe_add_settings_page');
 add_action('wp_ajax_send_preview', 'wpbe_ajax_send_preview');
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'wpbe_add_settings_link');
 add_filter('wp_mail_from_name', 'wpbe_set_from_name');
 add_filter('wp_mail_from', 'wpbe_set_from_email');
+
+/**
+ * Load the text domain for i18n
+ *
+ * @since 0.1
+ */
+function wpbe_init_textdomain() {
+	load_plugin_textdomain( 'wp-better-emails', null, basename(dirname(__FILE__)) . '/langs/' );
+}
 
 /**
  * Init plugin options to white list our options & register our script
@@ -44,7 +54,7 @@ function wpbe_plugin_init() {
  * @return array Plugins links with settings added
  */	
 function wpbe_add_settings_link( $links ) {
-	$links[] = '<a href="options-general.php?page=wpbe_options">' . __('Settings', 'wpbe') . '</a>';
+	$links[] = '<a href="options-general.php?page=wpbe_options">' . __('Settings', 'wp-better-emails') . '</a>';
 	return $links;
 }
 
@@ -61,7 +71,7 @@ function wpbe_register_options() {
 		if (function_exists('deactivate_plugins')) {
 			deactivate_plugins(__FILE__);
 		}
-		die(__('WP Better Emails requires WordPress 2.8 or newer.', 'wpbe'));
+		die(__('WP Better Emails requires WordPress 2.8 or newer.', 'wp-better-emails'));
 	}
 
 	$template = '';
@@ -146,10 +156,10 @@ function wpbe_options_validate( $input ) {
 
 	// Checking emails
 	if ( empty($from_email) ) {
-		add_settings_error('wpbe_options', 'settings_updated', __('Please enter a sender email address.', 'wpbe'));
+		add_settings_error('wpbe_options', 'settings_updated', __('Please enter a sender email address.', 'wp-better-emails'));
 		$input['from_email'] = '';
 	} elseif ( !is_email($from_email) ) {
-		add_settings_error('wpbe_options', 'settings_updated', __('Please enter a valid sender email address.', 'wpbe'));
+		add_settings_error('wpbe_options', 'settings_updated', __('Please enter a valid sender email address.', 'wp-better-emails'));
 		$input['from_email'] = '';
 	} else {
 		$input['from_email'] = sanitize_email($from_email);
@@ -159,10 +169,10 @@ function wpbe_options_validate( $input ) {
 	$input['from_name']	= strip_tags( $input['from_name'] );
 
 	if( empty($input['template']) )
-		add_settings_error('wpbe_options', 'settings_updated', __('Template is empty', 'wpbe'));
+		add_settings_error('wpbe_options', 'settings_updated', __('Template is empty', 'wp-better-emails'));
 	// Check if %content% tag is the template body
 	elseif ( strpos( $input['template'], '%content%') === false )
-		add_settings_error('wpbe_options', 'settings_updated', __('No content tag found. Please insert  the %content% tag in your template', 'wpbe'));
+		add_settings_error('wpbe_options', 'settings_updated', __('No content tag found. Please insert  the %content% tag in your template', 'wp-better-emails'));
 	$input['template']	= $input['template'];
 
 	return $input;
@@ -178,21 +188,21 @@ function wpbe_ajax_send_preview( $email ) {
 	check_ajax_referer( 'email_preview' );
 	$preview_email = sanitize_email($_POST['preview_email']);
 	if( empty($preview_email) )
-		die( '<div class="error"><p>' . __('Please enter an email') . '</p></div>' );
+		die( '<div class="error"><p>' . __('Please enter an email', 'wp-better-emails') . '</p></div>' );
 	if( !is_email($preview_email) )
-		die( '<div class="error"><p>' . __('Please enter a valid email') . '</p></div>' );
-	$message = __('Hey !');
+		die( '<div class="error"><p>' . __('Please enter a valid email', 'wp-better-emails') . '</p></div>' );
+	$message = __('Hey !', 'wp-better-emails');
 	$message .= "\r\n\r\n";
-	$message .= __('This is a sample email to test your template.');
+	$message .= __('This is a sample email to test your template.', 'wp-better-emails');
 	$message .= "\r\n\r\n";
-	$message .= __('If you\'re not skilled in HTML/CSS email coding, I strongly recommend to leave the default template as it is. It has been tested on various and popular email clients like Gmail, Yahoo Mail, Hotmail/Live, Thunderbird, Apple Mail, Outlook, and many more. ');
+	$message .= __('If you\'re not skilled in HTML/CSS email coding, I strongly recommend to leave the default template as it is. It has been tested on various and popular email clients like Gmail, Yahoo Mail, Hotmail/Live, Thunderbird, Apple Mail, Outlook, and many more. ', 'wp-better-emails');
 	$message .= "\r\n\r\n";
-	$message .= __('If you have any problem or any suggestions to improve this plugin, please let me know.');
+	$message .= __('If you have any problem or any suggestions to improve this plugin, please let me know.', 'wp-better-emails');
 	$message .= "\r\n\r\n";
-	if( wp_mail( $preview_email, '[' . wp_specialchars_decode(get_option('blogname'), ENT_QUOTES) . '] - ' . __('Email template preview'), $message) )
-		die('<div class="updated"><p>' . __('An email preview has been successfully sent to ' . $preview_email) . '</p></div>');
+	if( wp_mail( $preview_email, '[' . wp_specialchars_decode(get_option('blogname'), ENT_QUOTES) . '] - ' . __('Email template preview', 'wp-better-emails'), $message) )
+		die('<div class="updated"><p>' . __('An email preview has been successfully sent to ' . $preview_email, 'wp-better-emails') . '</p></div>');
 	else
-		die( '<div class="error"><p>' . __('An error occured while sending email. Please check your server configuration.') . '</p></div>' );
+		die( '<div class="error"><p>' . __('An error occured while sending email. Please check your server configuration.', 'wp-better-emails') . '</p></div>' );
 }
 
 /**
