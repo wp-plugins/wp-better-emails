@@ -44,8 +44,9 @@ I included a few helpful links in the 'Help & support' tab, you will find comple
 
 == Screenshots ==
 
-1. 
-2. This is the second screen shot
+1. The default template that comes with WP Better Emails. Tested on many email clients like Gmail, Yahoo!, Live/Hotmail, etc.
+2. Sender option screen.
+3. Edit template screen.
 
 == Changelog ==
 
