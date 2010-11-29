@@ -3,7 +3,7 @@
 Plugin Name: WP Better Emails
 Plugin URI: http://
 Description: Beautify the default text/plain WP mails into fully customizable HTML emails.
-Version: 0.1
+Version: 0.1.1
 Author: ArtyShow
 Author URI: http://
 */
