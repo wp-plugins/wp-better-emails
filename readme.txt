@@ -1,7 +1,7 @@
 === WP Better Emails ===
 Tags: email, emails, templates, notification, html emails, html, wp_mail
 Requires at least: 2.8
-Tested up to: 3.1
+Tested up to: 2.8
 Stable tag: 0.1.1
 
 Adds a customizable good looking HTML template to all WP default plain/text emails and lets you set
@@ -19,17 +19,21 @@ nicely in your recipient mailbox. But you can of course design your own.
 * All emails sent by this plugin are as 'multipart' so email clients that don't support HTML can read them.
 * You can include some variables in your template such as your blog URL, blog name, blog description, admin email or date and time. They will all be
 replaced when sending the email.
-* The default template is included as an HTML file in the plugin folder (wpbe_template.html.html), feel free to edit it with your favorite editor.
+* The default template is included as an HTML file in the plugin folder (wpbe_template.html), feel free to edit it with your favorite editor.
+* Clean uninstall process, doesn't leave some useless data in your database when deleted, so try it !
 
 = Examples usages : =
 
-* Add some ads to every email sent with wordpress
+* Add some ads/sponsored links to every email sent with wordpress
 * Include some banners to promote a special event or feature of your website
 
-= Languages =
+= Internationalization =
 
-WP Better Emails is currently available in english and french. I'm looking for translators to extend to other languages.
-If you traduced the plugin in your language, please let me know and share your file : plugins [ at ] artyshow-studio.fr
+WP Better Emails is currently available in :
+* English
+* French
+I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
+please let me know : plugins [ at ] artyshow-studio.fr
 
 == Installation ==
 
@@ -63,8 +67,8 @@ I included a few helpful links in the 'Help & support' tab, you will find comple
 
 == Changelog ==
 
+= 0.1.1 =
+ * French translation added
+
 = 0.1 =
  * WP Better Emails first release
-
-= 0.1.1 =
- * Added French translation
