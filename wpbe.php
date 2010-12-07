@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WP Better Emails
-Plugin URI: http://
+Plugin URI: http://wordpress.org/extend/plugins/wp-better-emails/
 Description: Beautify the default text/plain WP mails into fully customizable HTML emails.
 Version: 0.1.1
 Author: ArtyShow
-Author URI: http://
+Author URI: http://wordpress.org/extend/plugins/wp-better-emails/
 */
 
 /**
@@ -23,7 +23,7 @@ add_filter('wp_mail_from', 'wpbe_set_from_email');
 /**
  * Load the text domain for i18n
  *
- * @since 0.1
+ * @since 0.1.1
  */
 function wpbe_init_textdomain() {
 	load_plugin_textdomain( 'wp-better-emails', null, basename(dirname(__FILE__)) . '/langs/' );
@@ -102,7 +102,7 @@ $wpbe_options = get_option('wpbe_options');
  * @since 0.1
  */
 function wpbe_add_settings_page() {
-	$page = add_options_page('Email Options', 'Email Options', 'administrator', 'wpbe_options', 'wpbe_options_page');
+	$page = add_options_page(__('Email Options', 'wp-better-emails'), __('Email Options', 'wp-better-emails'), 'administrator', 'wpbe_options', 'wpbe_options_page');
 	add_action('admin_print_scripts-' . $page, 'wpbe_admin_print_script');
 	add_action('admin_print_styles-' . $page, 'wpbe_admin_print_style');
 }
@@ -113,7 +113,7 @@ function wpbe_add_settings_page() {
  * @since 0.1
  */
 function wpbe_admin_print_script() {
-	wp_enqueue_script('thickbox');
+	//wp_enqueue_script('thickbox');
 	wp_enqueue_script('jquery-cookie');
 	wp_enqueue_script('jquery-ui-core');
 	wp_enqueue_script('jquery-ui-tabs');
@@ -129,7 +129,7 @@ function wpbe_admin_print_script() {
  */
 function wpbe_admin_print_style() {
 	wp_enqueue_style('wpbe-admin-style');
-	wp_enqueue_style('thickbox');
+	//wp_enqueue_style('thickbox');
 	wp_enqueue_style('markitup-skin');
 	wp_enqueue_style('markitup-skin-toolbar');
 }
