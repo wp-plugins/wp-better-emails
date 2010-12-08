@@ -30,8 +30,10 @@ replaced when sending the email.
 = Internationalization =
 
 WP Better Emails is currently available in :
+
 * English
 * French
+
 I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
 please let me know : plugins [ at ] artyshow-studio.fr
 
