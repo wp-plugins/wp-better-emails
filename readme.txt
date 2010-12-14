@@ -1,8 +1,8 @@
 === WP Better Emails ===
-Tags: email, emails, templates, notification, html emails, html, wp_mail
+Tags: email, emails, templates, notification, html emails, html, wp_mail, wpmu, multisite
 Requires at least: 2.8
-Tested up to: 3.0.2
-Stable tag: 0.1.1
+Tested up to: 3.1
+Stable tag: 0.1.2
 
 Adds a customizable good looking HTML template to all WP default plain/text emails and lets you set
  a custom sender name and email address.
