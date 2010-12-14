@@ -69,6 +69,9 @@ I included a few helpful links in the 'Help & support' tab, you will find comple
 
 == Changelog ==
 
+= 0.1.2 =
+ * Added 3.1 compatibility
+
 = 0.1.1 =
  * French translation added
 
