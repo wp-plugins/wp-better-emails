@@ -76,7 +76,7 @@ function wpbe_register_options() {
 	}
 
 	$template = '';
-	include('email_template.php');
+	@include('email_template.php');
 	$domain = strtolower( $_SERVER['SERVER_NAME'] );
 	if ( substr( $domain, 0, 4 ) == 'www.' ) {
 		$domain = substr( $domain, 4 );
@@ -334,5 +334,6 @@ function wpbe_send_html( $phpmailer ) {
 function wpbe_esc_textlinks( $body ) {
 	return preg_replace('#<(http://[^*]+)>#', '$1', $body);
 }
+
 
 ?>
