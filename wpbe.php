@@ -3,7 +3,7 @@
 Plugin Name: WP Better Emails
 Plugin URI: http://wordpress.org/extend/plugins/wp-better-emails/
 Description: Beautify the default text/plain WP mails into fully customizable HTML emails.
-Version: 0.1.1
+Version: 0.1.2
 Author: ArtyShow
 Author URI: http://wordpress.org/extend/plugins/wp-better-emails/
 */
@@ -19,6 +19,7 @@ add_action('wp_ajax_send_preview', 'wpbe_ajax_send_preview');
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'wpbe_add_settings_link');
 add_filter('wp_mail_from_name', 'wpbe_set_from_name');
 add_filter('wp_mail_from', 'wpbe_set_from_email');
+add_filter('wp_mail_content_type', 'wpbe_set_content_type');
 
 /**
  * Load the text domain for i18n
@@ -166,7 +167,7 @@ function wpbe_options_validate( $input ) {
 	}
 
 	// Check name
-	$input['from_name']	= strip_tags( $input['from_name'] );
+	$input['from_name']	=  esc_html($input['from_name']);
 
 	if( empty($input['template']) )
 		add_settings_error('wpbe_options', 'settings_updated', __('Template is empty', 'wp-better-emails'));
@@ -284,7 +285,7 @@ function wpbe_set_from_email( $from_email ) {
 function wpbe_set_from_name( $from_name ) {
 	global $wpbe_options;
 	if ( !empty($wpbe_options['from_name']) )
-		return $wpbe_options['from_name'];
+		return wp_specialchars_decode($wpbe_options['from_name'], ENT_QUOTES);
 	return $from_name;
 }
 
@@ -293,10 +294,15 @@ function wpbe_set_from_name( $from_name ) {
  *
  * @since 0.1
  * @param string $content_type
- * @return string
+ * @return string $content_type
  */
 function wpbe_set_content_type( $content_type ) {
-	return $content_type = 'text/html';
+	// Only convert if the message is text/plain and the template is ok
+	if( $content_type == 'text/plain' && wpbe_check_template() === true ) {
+		add_action('phpmailer_init', 'wpbe_send_html');
+		return $content_type = 'text/html';
+	}
+	return $content_type;
 }
 
 /**
@@ -306,29 +312,27 @@ function wpbe_set_content_type( $content_type ) {
  * @param object $phpmailer
  */
 function wpbe_send_html( $phpmailer ) {
-	// Check if the message is text/plain
-	if( strlen($phpmailer->Body) == strlen( strip_tags($phpmailer->Body) ) ) {
-
-		// Set the original plain text message
-		$phpmailer->AltBody = wp_specialchars_decode($phpmailer->Body, ENT_QUOTES);
-
-		// Convert line breaks & make links clickable
-		$phpmailer->Body = nl2br ( make_clickable ($phpmailer->Body) );
-
-		// Add template to message
-		$phpmailer->Body = wpbe_email_templatize($phpmailer->Body);
-
-		// Replace variables in email
-		$phpmailer->Body = wpbe_template_replacement($phpmailer->Body);
-	}
+	// Set the original plain text message
+	$phpmailer->AltBody = wp_specialchars_decode($phpmailer->Body, ENT_QUOTES);
+	// Clean < and > around text links in WP 3.1
+	$phpmailer->Body = wpbe_esc_textlinks($phpmailer->Body);
+	// Convert line breaks & make links clickable
+	$phpmailer->Body = nl2br ( make_clickable ($phpmailer->Body) );
+	// Add template to message
+	$phpmailer->Body = wpbe_email_templatize($phpmailer->Body);
+	// Replace variables in email
+	$phpmailer->Body = wpbe_template_replacement($phpmailer->Body);
 }
 
 /**
- * Only apply filters if there's a valid template
+ * Replaces the < & > of the 3.1 email text links
+ *
+ * @since 0.1.2
+ * @param string $body
+ * @return string
  */
-if( wpbe_check_template() ) {
-	add_filter('wp_mail_content_type', 'wpbe_set_content_type');
-	add_action('phpmailer_init', 'wpbe_send_html');
+function wpbe_esc_textlinks( $body ) {
+	return preg_replace('#<(http://[^*]+)>#', '$1', $body);
 }
 
 ?>
