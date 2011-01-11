@@ -2,7 +2,7 @@
 Tags: email, emails, templates, notification, html emails, html, wp_mail, wpmu, multisite
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 0.1.2
+Stable tag: 0.2
 
 Adds a customizable good looking HTML template to all WP default plain/text emails and lets you set
  a custom sender name and email address.
@@ -26,6 +26,7 @@ replaced when sending the email.
 
 * Add some ads/sponsored links to every email sent with wordpress
 * Include some banners to promote a special event or feature of your website
+* Brand your emails to your website or client website
 
 = Internationalization =
 
@@ -33,6 +34,7 @@ WP Better Emails is currently available in :
 
 * English
 * French
+* Dutch (Thanks to [Glenn Mulleners](http://wp-expert.nl "Glenn Mulleners"))
 
 I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
 please let me know : plugins [ at ] artyshow-studio.fr
@@ -71,6 +73,7 @@ I included a few helpful links in the 'Help & support' tab, you will find comple
 
 = 0.1.2 =
  * Added 3.1 compatibility
+ * Dutch translation
 
 = 0.1.1 =
  * French translation added
