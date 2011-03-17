@@ -53,7 +53,7 @@ function wpbe_plugin_init() {
  *
  * @param array $links Plugin links
  * @return array Plugins links with settings added
- */	
+ */
 function wpbe_add_settings_link( $links ) {
 	$links[] = '<a href="options-general.php?page=wpbe_options">' . __('Settings', 'wp-better-emails') . '</a>';
 	return $links;
@@ -156,7 +156,7 @@ function wpbe_options_validate( $input ) {
 	$from_email		= strtolower($input['from_email']);
 
 	// Checking emails
-	if ( !is_email($from_email) ) {
+	if ( !empty($from_email) && !is_email($from_email) ) {
 		add_settings_error('wpbe_options', 'settings_updated', __('Please enter a valid sender email address.', 'wp-better-emails'));
 		$input['from_email'] = '';
 	} else {
@@ -262,7 +262,7 @@ function wpbe_check_template() {
  * @since 0.1
  * @global array $wpbe_options
  * @param string $from_email
- * @return string 
+ * @return string
  */
 function wpbe_set_from_email( $from_email ) {
 	global $wpbe_options;
@@ -331,6 +331,4 @@ function wpbe_send_html( $phpmailer ) {
 function wpbe_esc_textlinks( $body ) {
 	return preg_replace('#<(https?://[^*]+)>#', '$1', $body);
 }
-
-
 ?>
