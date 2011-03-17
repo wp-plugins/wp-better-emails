@@ -34,7 +34,7 @@ WP Better Emails is currently available in :
 
 * English
 * French
-* Dutch (Thanks to [Glenn Mulleners](http://wp-expert.nl "Glenn Mulleners"))
+* Dutch by [Glenn Mulleners](http://wp-expert.nl "Glenn Mulleners")
 
 I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
 please let me know : plugins [ at ] artyshow-studio.fr
