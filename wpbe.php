@@ -331,6 +331,4 @@ function wpbe_send_html( $phpmailer ) {
 function wpbe_esc_textlinks( $body ) {
 	return preg_replace('#<(https?://[^*]+)>#', '$1', $body);
 }
-
-
 ?>
