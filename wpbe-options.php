@@ -13,12 +13,12 @@
 			<div id="tab1" class="wpbe_tab_content">
 				<p><?php _e('Change the Wordpress default behavior when sending emails to users (i.e. comment notifications, lost password, etc.), set your own sender name and email address.', 'wp-better-emails'); ?></p>
 				<table class="form-table">
-					<tr valign="top" class="form-field form-required">
-						<th scope="row"><label for="wpbe_from_name"><?php _e('From name', 'wp-better-emails'); ?> <span class="description">(<?php _e('required', 'wp-better-emails'); ?>)</span></label></th>
+					<tr valign="top" class="form-field">
+						<th scope="row"><label for="wpbe_from_name"><?php _e('From name', 'wp-better-emails'); ?></label></th>
 						<td><input type="text" id="wpbe_from_name" class="regular-text" name="wpbe_options[from_name]" value="<?php echo $options['from_name']; ?>" /></td>
 					</tr>
-					<tr valign="top" class="form-field form-required">
-						<th scope="row"><label for="wpbe_from_email"><?php _e('From email address', 'wp-better-emails'); ?> <span class="description">(<?php _e('required', 'wp-better-emails'); ?>)</span></label></th>
+					<tr valign="top" class="form-field">
+						<th scope="row"><label for="wpbe_from_email"><?php _e('From email address', 'wp-better-emails'); ?></label></th>
 						<td><input type="text" id="wpbe_from_email" class="regular-text" name="wpbe_options[from_email]" value="<?php echo $options['from_email']; ?>" /></td>
 					</tr>
 				</table>

@@ -3,7 +3,7 @@
 Plugin Name: WP Better Emails
 Plugin URI: http://wordpress.org/extend/plugins/wp-better-emails/
 Description: Beautify the default text/plain WP mails into fully customizable HTML emails.
-Version: 0.1.2
+Version: 0.1.3
 Author: ArtyShow
 Author URI: http://wordpress.org/extend/plugins/wp-better-emails/
 */
@@ -156,10 +156,7 @@ function wpbe_options_validate( $input ) {
 	$from_email		= strtolower($input['from_email']);
 
 	// Checking emails
-	if ( empty($from_email) ) {
-		add_settings_error('wpbe_options', 'settings_updated', __('Please enter a sender email address.', 'wp-better-emails'));
-		$input['from_email'] = '';
-	} elseif ( !is_email($from_email) ) {
+	if ( !is_email($from_email) ) {
 		add_settings_error('wpbe_options', 'settings_updated', __('Please enter a valid sender email address.', 'wp-better-emails'));
 		$input['from_email'] = '';
 	} else {
@@ -220,8 +217,8 @@ function wpbe_email_templatize( $body ) {
 	$template = '';
 	if( isset ($wpbe_options['template']) && !empty($wpbe_options['template']) )
 		$template .= $wpbe_options['template'];
-	$email = str_replace('%content%', $body, $template);
-	return $email;
+	$html_email = str_replace('%content%', $body, $template);
+	return $html_email;
 }
 
 /**
@@ -271,7 +268,7 @@ function wpbe_set_from_email( $from_email ) {
 	global $wpbe_options;
 	if ( !empty($wpbe_options['from_email']) && is_email( $wpbe_options['from_email'] ) )
 		return $wpbe_options['from_email'];
-	return $email;
+	return $from_email;
 }
 
 /**
@@ -332,7 +329,7 @@ function wpbe_send_html( $phpmailer ) {
  * @return string
  */
 function wpbe_esc_textlinks( $body ) {
-	return preg_replace('#<(http://[^*]+)>#', '$1', $body);
+	return preg_replace('#<(https?://[^*]+)>#', '$1', $body);
 }
 
 

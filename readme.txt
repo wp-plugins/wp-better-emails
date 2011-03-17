@@ -2,7 +2,7 @@
 Tags: email, emails, templates, notification, html emails, html, wp_mail, wpmu, multisite
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 0.2
+Stable tag: 0.1.3
 
 Adds a customizable good looking HTML template to all WP default plain/text emails and lets you set
  a custom sender name and email address.
@@ -70,6 +70,10 @@ I included a few helpful links in the 'Help & support' tab, you will find comple
 3. Edit template screen.
 
 == Changelog ==
+
+= 0.1.3 =
+ * Sender email and name are now optional
+ * Fixes replacing URLs of plain text content to handle https protocol
 
 = 0.1.2 =
  * Added 3.1 compatibility
