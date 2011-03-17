@@ -156,7 +156,7 @@ function wpbe_options_validate( $input ) {
 	$from_email		= strtolower($input['from_email']);
 
 	// Checking emails
-	if ( !is_email($from_email) ) {
+	if ( !empty($from_email) && !is_email($from_email) ) {
 		add_settings_error('wpbe_options', 'settings_updated', __('Please enter a valid sender email address.', 'wp-better-emails'));
 		$input['from_email'] = '';
 	} else {
