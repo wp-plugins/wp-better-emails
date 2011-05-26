@@ -26,7 +26,7 @@ replaced when sending the email.
 
 * Add some ads/sponsored links to every email sent with wordpress
 * Include some banners to promote a special event or feature of your website
-* Brand your emails to your website or client website
+* Brand your emails of your website or client website
 
 = Internationalization =
 
