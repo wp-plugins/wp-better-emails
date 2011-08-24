@@ -49,7 +49,7 @@
 							<textarea id="wpbe_template" name="wpbe_options[template]" cols="80" rows="20"><?php echo $options['template']; ?></textarea>
 							<p>
 								<label for="wpbe_preview_email"><?php _e('Send an email preview to', 'wp-better-emails'); ?></label>
-								<input type="hidden" id="wpbe_nonce_preview" name="_ajax_nonce" value="<? echo wp_create_nonce( 'email_preview' ); ?>" />
+								<input type="hidden" id="wpbe_nonce_preview" name="_ajax_nonce" value="<?php echo wp_create_nonce( 'email_preview' ); ?>" />
 								<input type="text" id="wpbe_preview_email" name="wpbe_preview_email" value="<?php echo get_option('admin_email'); ?>" />
 								<a href="javascript:void(0);" class="button" id="wpbe_send_preview"><?php _e('Send', 'wp-better-emails'); ?></a><span id="loading"></span>
 								<img src="<?php echo get_option('siteurl'); ?>/wp-admin/images/wpspin_light.gif" id="ajax-loading" style="visibility: hidden;" alt="Loading" />
