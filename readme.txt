@@ -1,7 +1,8 @@
 === WP Better Emails ===
-Tags: email, emails, templates, notification, html emails, html, wp_mail, wpmu, multisite
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=7Q49VJQNRCQ8E&lc=FR&item_name=ArtyShow&item_number=wp%2dbetter%2demails&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
+Tags: email, emails, html emails, templates, notification, wp_mail, wpmu, multisite
 Requires at least: 2.8
-Tested up to: 3.1
+Tested up to: 3.2+
 Stable tag: 0.1.3
 
 Adds a customizable good looking HTML template to all WP default plain/text emails and lets you set
@@ -10,23 +11,25 @@ Adds a customizable good looking HTML template to all WP default plain/text emai
 == Description ==
 
 All emails from Wordpress (lost password, notifications, etc.) are sent by default in text/plain format. WP Better
-Emails wraps them with a much better looking customizable **HTML template** and lets you also set your own **sender name** and **email address**.
+Emails wraps them with a much better looking customizable **HTML email template** and lets you also set your own **sender name** and **email address**.
 
 * WP Better Emails comes with a default simple and clean template that has been tested on various and popular email clients
  like Gmail, Yahoo Mail, Hotmail/Live, AOL, Outlook, Apple Mail and many more. This to ensure your emails will always display
 nicely in your recipient mailbox. But you can of course design your own.
-* WP Better Emails lets you send sample emails to test and preview your own custom template.
-* All emails sent by this plugin are as 'multipart' so email clients that don't support HTML can read them.
-* You can include some variables in your template such as your blog URL, blog name, blog description, admin email or date and time. They will all be
+* WP Better Emails lets you send sample emails to test and preview your own custom HTML email template.
+* Watch your HTML email template during editing with the live preview.
+* Fancy HTML editor with CodeMirror syntax highlighting.
+* All emails sent by this plugin are as 'multipart' so that email clients that don't support HTML can read them.
+* You can include some variables in your template such as your blog URL, home URL, blog name, blog description, admin email or date and time. They will all be
 replaced when sending the email.
-* The default template is included as an HTML file in the plugin folder (wpbe_template.html), feel free to edit it with your favorite editor.
-* Clean uninstall process, doesn't leave some useless data in your database when deleted, so try it !
+* The default template is included as an HTML file in the plugin folder, feel free to edit it with your favorite editor.
+* Clean uninstall process, doesn't leave some useless data in your database when deleted, you can easily give it a try !
 
 = Examples usages : =
 
 * Add some ads/sponsored links to every email sent with wordpress
 * Include some banners to promote a special event or feature of your website
-* Brand your emails of your website or client website
+* Brand your emails to your website or client website
 
 = Internationalization =
 
@@ -39,13 +42,28 @@ WP Better Emails is currently available in :
 I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
 please let me know : plugins [ at ] artyshow-studio.fr
 
+= Credits =
+
+[CodeMirror](http://codemirror.net/ "CodeMirror") library
+
 == Installation ==
 
 1. Extract and upload the `wp-better-emails` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Set a sender email and name, defaults are respectively 'wordpress@yourdomain.com' and 'Your Blog Title'
+2. Activate the plugin through the 'Plugins' menu in the WordPress admin panel
+3. (Optional) Set a sender email and name, if none, wordpress defaults will be used : 'wordpress@yourdomain.com' and 'Your Blog Title'
 4. (Optional) Edit your own email template. See the screenshot tab to have a look at the default template
 5. Every emails going out of your Wordpress Blog (notifications, lost password, etc.) looks better now !
+
+== Upgrade Notice ==
+
+= Manual update =
+
+1. Delete the plugin `wp-better-emails` folder under the `/wp-content/plugins/` directory
+2. Upload the last version and activate it
+
+= Automatic update =
+
+Just use the Wordpress automatic plugin update system
 
 == Frequently Asked Questions ==
 
@@ -66,10 +84,18 @@ I included a few helpful links in the 'Help & support' tab, you will find comple
 == Screenshots ==
 
 1. The default template that comes with WP Better Emails. Tested on many email clients like Gmail, Yahoo!, Live/Hotmail, etc.
-2. Sender option screen.
-3. Edit template screen.
+2. WP Better Emails settings screen with the default WP TinyMCE editor.
+3. Editor in source mode using CodeMirror syntax highlighting.
+4. Live preview your template.
 
 == Changelog ==
+
+= 0.2 =
+ * WP TinyMCE editor support
+ * HTML editor with CodeMirror as a TinyMCE plugin
+ * Live preview (> WP 3.1)
+ * Help moved to contextual help 
+ * Translations for spanish, hebrew
 
 = 0.1.3 =
  * Sender email and name are now optional

@@ -1,27 +1,46 @@
-jQuery(document).ready(function(){	
-	// Tabs
-	jQuery('#wpbe_options_tabs').tabs( { cookie: { expires: 1 } } );
+jQuery(document).ready(function($){
 
-	jQuery('#wpbe_template').markItUp(mySettings);
-
-	// AJAX
-	jQuery('#wpbe_send_preview').click(function(e) {
-		var email = jQuery('#wpbe_preview_email').val();
-		var preview_nonce = jQuery('#wpbe_nonce_preview').val();
-		jQuery.ajax({
+	// Send email preview
+	$('#wpbe_send_preview').click(function(e) {
+		e.preventDefault();
+		var email = $('#wpbe_email_preview_field').val(), message = $('#wpbe_preview_message'), loading = $('#wpbe_ajax_loading');
+		$.ajax({
 			type: 'post',
-			url: 'admin-ajax.php',
+			url: wpbe_ajax_vars.url,
 			data: {
-				action: 'send_preview',
+				action: wpbe_ajax_vars.action,
 				preview_email: email,
-				_ajax_nonce: preview_nonce
+				_ajax_nonce: wpbe_ajax_vars.nonce
 			},
-			beforeSend: function() { jQuery('#ajax-loading').css('visibility', 'visible'); },
-			complete: function() { jQuery('#ajax-loading').css('visibility', 'hidden');},
-			success: function(html){
-				jQuery('#wpbe_preview_message').html(jQuery(html).fadeIn());
+			beforeSend: function() {
+				loading.css('visibility', 'visible');
+			},
+			complete: function() {
+				loading.css('visibility', 'hidden');
+			},
+			success: function(data) {
+				message.html($(data).fadeIn());
 			}
 		});
-		e.preventDefault();
 	});
+
+	// Thickbox preview
+	$('#wpbe_preview_template').live('click', function(e) {
+		e.preventDefault();
+		var preview_iframe = $('#TB_iframeContent');
+		if( preview_iframe.length ) {
+			var template;
+			if (typeof(tinyMCE) != 'undefined') {
+				if( tinyMCE.activeEditor && !tinyMCE.activeEditor.isHidden() )
+					template = tinyMCE.activeEditor.getContent();
+				else
+					template = $('.wpbe_template').val();
+			}
+			preview_iframe = preview_iframe[preview_iframe.length - 1].contentWindow || frame[preview_iframe.length - 1];
+			preview_iframe.document.open();
+			preview_iframe.document.write( template );
+			preview_iframe.document.close();
+		}
+	});
+
 });
