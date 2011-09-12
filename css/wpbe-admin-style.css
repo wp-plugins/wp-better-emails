@@ -5,7 +5,7 @@
 	vertical-align: middle;
 }
 #wpbe_preview_message {
-	width: 70%;
+	width: 80%;
 }
 #wpbe_support {
 	color: #777;
@@ -13,13 +13,14 @@
 }
 #wpbe_template_tbl {
 	border: solid 1px #ccc;
+	overflow: auto;
 }
 #wpbe_template {
 	width: 100%;
 	height: 410px;
 }
 #wpbe_template_container {
-	width: 70%;
+	width: 80%;
 }
 #wpbe_preview_template {
 	font-weight: normal;

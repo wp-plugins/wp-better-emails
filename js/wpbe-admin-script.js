@@ -19,11 +19,17 @@ jQuery(document).ready(function($){
 				loading.css('visibility', 'hidden');
 			},
 			success: function(data) {
-				message.html($(data).fadeIn());
+				message.append(data);
 			}
 		});
 	});
-
+	
+	// Trigger help
+	$('#wpbe_help').bind('click', function(e){
+		e.preventDefault();
+		$('a#contextual-help-link').trigger('click');
+	});
+    
 	// Thickbox preview
 	$('#wpbe_preview_template').live('click', function(e) {
 		e.preventDefault();
