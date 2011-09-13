@@ -74,7 +74,7 @@ if (!class_exists('WP_Better_Emails')) {
 			add_action('admin_menu', array(&$this, 'admin_menu'));
 			add_action('wp_ajax_send_preview', array(&$this, 'ajax_send_preview'));
 			add_action("admin_head", array(&$this, 'load_wp_tiny_mce'));
-			if( version_compare($wp_version, '3.2', '<') && version_compare($wp_version, '3.0', '>') )
+			if( version_compare($wp_version, '3.2', '<') && version_compare($wp_version, '3.0.6', '>') )
 				add_action( 'admin_print_footer_scripts', 'wp_tiny_mce_preload_dialogs');
 			
 			// Filters

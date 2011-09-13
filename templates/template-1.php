@@ -9,7 +9,7 @@ $template = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "htt
 			<tr>
 				<td style="padding:15px;">
 					<center>
-						<table width="550" cellpadding="0" bgcolor="#ffffff" cellspacing="0">
+						<table width="550" cellpadding="0" bgcolor="#ffffff" cellspacing="0" align="center">
 							<tr>
 								<td align="left">
 									<div style="border:solid 1px #d9d9d9;">
