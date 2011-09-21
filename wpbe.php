@@ -158,7 +158,7 @@ if (!class_exists('WP_Better_Emails')) {
 		 * @since 0.1
 		 */
 		function admin_menu() {
-			$this->page = add_options_page(__('Email settings', 'wp-better-emails'), __('WP Better Emails', 'wp-better-emails'), 'administrator', 'wpbe_options', array(&$this, 'admin_page'));
+			$this->page = add_options_page(__('Email settings', 'wp-better-emails'), __('WP Better Emails', 'wp-better-emails'), 'add_users', 'wpbe_options', array(&$this, 'admin_page'));
 			add_action('admin_print_scripts-' . $this->page, array(&$this, 'admin_print_script'));
 			add_action('admin_print_styles-' . $this->page, array(&$this, 'admin_print_style'));
 		}
@@ -172,7 +172,9 @@ if (!class_exists('WP_Better_Emails')) {
 		 */
 		function is_wpbe_page() {
 			global $page_hook;
-			if ($page_hook == $this->page)
+			if( $this->page === false )
+				return false;
+			if ( $this->page == $page_hook  )
 				return true;
 			return false;
 		}
