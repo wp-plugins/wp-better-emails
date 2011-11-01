@@ -40,6 +40,7 @@ WP Better Emails is currently available in :
 * French
 * German - [Robert Tremmel](http://roberttremmel.de/ "Robert Tremmel")
 * Hebrew - [Avi Ben-Avraham](mailto:avi@nrich.co.il "Avi Ben-Avraham")
+* Turkish - [Ünsal Korkmaz](http://www.unsalkorkmaz.com/ "Ünsal Korkmaz")
 
 I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
 please let me know : plugins [ at ] artyshow-studio.fr
