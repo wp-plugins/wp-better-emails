@@ -3,7 +3,7 @@
   Plugin Name: WP Better Emails
   Plugin URI: http://wordpress.org/extend/plugins/wp-better-emails/
   Description: Beautify the default text/plain WP mails into fully customizable HTML emails.
-  Version: 0.2.1
+  Version: 0.2.2
   Author: ArtyShow
   Author URI: http://wordpress.org/extend/plugins/wp-better-emails/
   License: GPLv2
@@ -73,7 +73,8 @@ if (!class_exists('WP_Better_Emails')) {
 			add_action('admin_init', array(&$this, 'init'));
 			add_action('admin_menu', array(&$this, 'admin_menu'));
 			add_action('wp_ajax_send_preview', array(&$this, 'ajax_send_preview'));
-			add_action("admin_head", array(&$this, 'load_wp_tiny_mce'));
+			if(version_compare($wp_version, '3.3', '<'))
+				add_action('admin_head', array(&$this, 'load_wp_tiny_mce'));
 			if( version_compare($wp_version, '3.2', '<') && version_compare($wp_version, '3.0.6', '>') )
 				add_action( 'admin_print_footer_scripts', 'wp_tiny_mce_preload_dialogs');
 			
@@ -158,7 +159,7 @@ if (!class_exists('WP_Better_Emails')) {
 		 * @since 0.1
 		 */
 		function admin_menu() {
-			$this->page = add_options_page(__('Email settings', 'wp-better-emails'), __('WP Better Emails', 'wp-better-emails'), 'add_users', 'wpbe_options', array(&$this, 'admin_page'));
+			$this->page = add_options_page(__('Email settings', 'wp-better-emails'), __('WP Better Emails', 'wp-better-emails'), 'administrator', 'wpbe_options', array(&$this, 'admin_page'));
 			add_action('admin_print_scripts-' . $this->page, array(&$this, 'admin_print_script'));
 			add_action('admin_print_styles-' . $this->page, array(&$this, 'admin_print_style'));
 		}
@@ -172,9 +173,7 @@ if (!class_exists('WP_Better_Emails')) {
 		 */
 		function is_wpbe_page() {
 			global $page_hook;
-			if( $this->page === false )
-				return false;
-			if ( $this->page == $page_hook  )
+			if ($page_hook == $this->page)
 				return true;
 			return false;
 		}
@@ -514,8 +513,8 @@ if (!class_exists('WP_Better_Emails')) {
 				<?php
 			} else {
 				// WP >= 3.3
-				$settings = array('wpautop' => false, 'editor_class' => 'wpbe_template', 'quicktags' => true);
-				wp_editor($template, 'wpbe_options[template]', $settings);
+				$settings = array('wpautop' => false, 'editor_class' => 'wpbe_template', 'quicktags' => false);
+				wp_editor($this->options['template'], 'wpbe_options[template]', $settings);
 			}
 		}
 

@@ -2,8 +2,8 @@
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=7Q49VJQNRCQ8E&lc=FR&item_name=ArtyShow&item_number=wp%2dbetter%2demails&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: email, emails, html emails, templates, notification, wp_mail, wpmu, multisite
 Requires at least: 2.8
-Tested up to: 3.2+
-Stable tag: 0.2.1
+Tested up to: 3.3
+Stable tag: 0.2.2
 
 Adds a customizable good looking HTML template to all WP default plain/text emails and lets you set
  a custom sender name and email address.
@@ -40,6 +40,7 @@ WP Better Emails is currently available in :
 * French
 * German - [Robert Tremmel](http://roberttremmel.de/ "Robert Tremmel")
 * Hebrew - [Avi Ben-Avraham](mailto:avi@nrich.co.il "Avi Ben-Avraham")
+* Turkish - [Ünsal Korkmaz](http://www.unsalkorkmaz.com/ "Ünsal Korkmaz")
 
 I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
 please let me know : plugins [ at ] artyshow-studio.fr
@@ -115,6 +116,11 @@ You can place this function in your functions.php theme file or in a plugin.
 5. Help tab with information about available tags.
 
 == Changelog ==
+
+= 0.2.2 = 
+
+ * Added 3.3 compatibility
+ * Turkish translation
 
 = 0.2.1 =
 
