@@ -3,7 +3,7 @@
   Plugin Name: WP Better Emails
   Plugin URI: http://wordpress.org/extend/plugins/wp-better-emails/
   Description: Beautify the default text/plain WP mails into fully customizable HTML emails.
-  Version: 0.2.2
+  Version: 0.2.3
   Author: ArtyShow
   Author URI: http://wordpress.org/extend/plugins/wp-better-emails/
   License: GPLv2
@@ -73,7 +73,7 @@ if (!class_exists('WP_Better_Emails')) {
 			add_action('admin_init', array(&$this, 'init'));
 			add_action('admin_menu', array(&$this, 'admin_menu'));
 			add_action('wp_ajax_send_preview', array(&$this, 'ajax_send_preview'));
-			if(version_compare($wp_version, '3.3', '<'))
+			if (version_compare($wp_version, '3.2.1', '<='))
 				add_action('admin_head', array(&$this, 'load_wp_tiny_mce'));
 			if( version_compare($wp_version, '3.2', '<') && version_compare($wp_version, '3.0.6', '>') )
 				add_action( 'admin_print_footer_scripts', 'wp_tiny_mce_preload_dialogs');
@@ -507,7 +507,7 @@ if (!class_exists('WP_Better_Emails')) {
 		function template_editor() {
 			global $wp_version;
 
-			if (version_compare($wp_version, '3.3', '<')) {
+			if (version_compare($wp_version, '3.2.1', '<=')) {
 				?>
 				<textarea id="wpbe_template" class="wpbe_template" name="wpbe_options[template]" cols="80" rows="10"><?php echo $this->options['template']; ?></textarea>
 				<?php

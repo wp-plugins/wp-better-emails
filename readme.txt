@@ -3,7 +3,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=7Q49V
 Tags: email, emails, html emails, templates, notification, wp_mail, wpmu, multisite
 Requires at least: 2.8
 Tested up to: 3.3
-Stable tag: 0.2.2
+Stable tag: 0.2.3
 
 Adds a customizable good looking HTML template to all WP default plain/text emails and lets you set
  a custom sender name and email address.
@@ -116,6 +116,11 @@ You can place this function in your functions.php theme file or in a plugin.
 5. Help tab with information about available tags.
 
 == Changelog ==
+
+= 0.2.3 =
+
+ * Fixed 3.3 beta compatilibity
+ * Fixed 3.3 help panel trigger
 
 = 0.2.2 = 
 
