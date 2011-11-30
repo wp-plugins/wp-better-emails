@@ -117,6 +117,10 @@ You can place this function in your functions.php theme file or in a plugin.
 
 == Changelog ==
 
+= 0.2.4 =
+
+ * Fixed TinyMCE role issue
+
 = 0.2.3 =
 
  * Fixed 3.3 beta compatilibity
