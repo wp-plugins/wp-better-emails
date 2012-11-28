@@ -43,7 +43,7 @@ WP Better Emails is currently available in :
 * Turkish - [Ünsal Korkmaz](http://www.unsalkorkmaz.com/ "Ünsal Korkmaz")
 * Italian - [Fabio Lelli](http://www.synaestesia.com/ "Fabio Lelli")
 * Arabic - [Yaser Maadan](http://www.englize.com/ "Yaser Maadan")
-* Simplified Chinese - [Will Yuan](http://yslove.net/) "Will Yuan")
+* Simplified Chinese - [Will Yuan](http://yslove.net/ "Will Yuan")
 
 I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
 please let me know : plugins [ at ] artyshow-studio.fr
