@@ -40,7 +40,7 @@ WP Better Emails is currently available in :
 * French
 * German - [Robert Tremmel](http://roberttremmel.de/ "Robert Tremmel")
 * Hebrew - [Avi Ben-Avraham](mailto:avi@nrich.co.il "Avi Ben-Avraham")
-* Turkish - [?nsal Korkmaz](http://www.unsalkorkmaz.com/ "?nsal Korkmaz")
+* Turkish - [Ünsal Korkmaz](http://www.unsalkorkmaz.com/ "Ünsal Korkmaz")
 * Italian - [Fabio Lelli](http://www.synaestesia.com/ "Fabio Lelli")
 * Arabic - [Yaser Maadan](http://www.englize.com/ "Yaser Maadan")
 * Simplified Chinese - [Will Yuan](http://yslove.net/ "Will Yuan")
