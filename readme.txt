@@ -47,6 +47,7 @@ WP Better Emails is currently available in :
 * Brazilian portuguese - [Johnny Bauer](mailto:thankamikase@yahoo.com.br "Johnny Bauer")
 * Russian - Vsevolod Bauer
 * Farsi
+* Indonesian
 
 I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
 please let me know : wpbetteremails [ at ] iamnico.la
@@ -122,6 +123,11 @@ You can place this function in your functions.php theme file or in a plugin.
 5. Help tab with information about available tags.
 
 == Changelog ==
+
+= 0.2.6.2 =
+
+* New translation : Indonesian
+* Fixed translation : Arabic, Farsi
 
 = 0.2.6.1 =
 
