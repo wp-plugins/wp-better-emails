@@ -45,7 +45,7 @@ WP Better Emails is currently available in :
 * Arabic - [Yaser Maadan](http://www.englize.com/ "Yaser Maadan")
 * Simplified Chinese - [Will Yuan](http://yslove.net/ "Will Yuan")
 * Brazilian portuguese - [Johnny Bauer](mailto:thankamikase@yahoo.com.br "Johnny Bauer")
-* Russian - Vsevolod Bauer
+* Russian - Vsevolod
 * Farsi
 * Indonesian
 
