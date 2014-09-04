@@ -2,10 +2,10 @@
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=7Q49VJQNRCQ8E&lc=FR&item_name=ArtyShow&item_number=wp%2dbetter%2demails&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: email, emails, html emails, templates, notification, wp_mail, wpmu, multisite
 Requires at least: 2.8
-Tested up to: 3.7
-Stable tag: 0.2.6.4
+Tested up to: 4.0
+Stable tag: 0.2.6.6
 
-Adds a customizable good looking HTML template to all WP default plain/text emails and lets you set
+Adds a customizable good looking HTML template to all WP default text/plain emails and lets you set
  a custom sender name and email address.
 
 == Description ==
@@ -48,10 +48,12 @@ WP Better Emails is currently available in :
 * Russian - Vsevolod Bauer
 * Farsi
 * Indonesian
-* Spanish - [Kaled Kelevra](http://howly-mowly.com/ "Kaled Kelevra") 
+* Spanish - [Kaled Kelevra](http://howly-mowly.com/ "Kaled Kelevra")
+* Swedish - [Andréas Lundgren](http://adevade.com/ "Andréas Lundgren")
+* Dutch - [Paul Romijn](http://www.bluecloudcompany.com/)
 
 I'm looking for translators to extend to other languages. If you have translated the plugin in your language or want to,
-please let me know : wpbetteremails [ at ] iamnico.la
+please let me know : wpbetteremails [ at ] helloni.co
 
 = Contributing =
 
@@ -71,7 +73,7 @@ WP Better Emails is also available on [GitHub](https://github.com/nlemoine/WP-Be
 
 == Upgrade Notice ==
 
-If you're using the default template provided with WP Better Emails, you should delete the plugin and reinstall it to make sure you have the lastest template improvements. 
+If you're using the default template provided with WP Better Emails, you should delete the plugin and reinstall it to make sure you have the lastest template improvements.
 
 If you have customized the HTML template and want to keep it, just update.
 
@@ -97,11 +99,15 @@ is found, sending HTML emails is automatically desactivated.
 
 = How does WP Better Emails interact with others plugins ? =
 
-WP Better Emails wraps every "plain/text" email sent with the Wordpress function `wp_mail()`.
+WP Better Emails wraps every "text/plain" email sent with the Wordpress function `wp_mail()`.
 
 = I totally messed up with the template, how can I get the original one ? =
 
-Just delete and reinstall the plugin from the admin panel. 
+Just delete and reinstall the plugin from the admin panel.
+
+= I'm using SB Welcome Editor and emails have no template =
+
+WP Better Emails only wraps "text/plain" emails. By default, SB Welcome Editor sends email as HTML, with no style but as "text/html". Be sure to set the SB Welcome Editor format option to "text".
 
 = How can I add my own tags ? =
 
@@ -129,24 +135,33 @@ You can place this function in your functions.php theme file or in a plugin.
 
 == Changelog ==
 
+= 0.2.6.6 =
+
+* New translation: Dutch
+
+= 0.2.6.5 =
+
+* Fixed editor (WordPress 3.9 compatibility issue)
+* New translation: Swedish
+
 = 0.2.6.4 =
 
 * Fixed live preview feature
 
 = 0.2.6.3 =
 
-* New translation : Spanish
+* New translation: Spanish
 
 = 0.2.6.2 =
 
-* New translation : Indonesian
-* Fixed translation : Arabic, Farsi
+* New translation: Indonesian
+* Fixed translation: Arabic, Farsi
 
 = 0.2.6.1 =
 
-* New translation : Farsi
-* New translation : Russian
-* Updated transaltion : German
+* New translation: Farsi
+* New translation: Russian
+* Updated transaltion: German
 
 = 0.2.6 =
 
@@ -172,7 +187,7 @@ You can place this function in your functions.php theme file or in a plugin.
  * Fixed 3.3 beta compatilibity
  * Fixed 3.3 help panel trigger
 
-= 0.2.2 = 
+= 0.2.2 =
 
  * Added 3.3 compatibility
  * Turkish translation
@@ -187,7 +202,7 @@ You can place this function in your functions.php theme file or in a plugin.
  * HTML editor with CodeMirror as a TinyMCE plugin
  * Live preview (> WP 3.1)
  * Include filter to add your own tag replacements
- * Help moved to contextual help 
+ * Help moved to contextual help
  * Translations for german, hebrew
  * Improved template email clients support
 
