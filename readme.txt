@@ -219,3 +219,4 @@ You can place this function in your functions.php theme file or in a plugin.
 
 = 0.1 =
  * WP Better Emails first release
+
