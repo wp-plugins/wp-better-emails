@@ -56,6 +56,7 @@ if ( ! class_exists( 'WP_Better_Emails' ) ) {
 			add_filter( 'wp_mail_from',         array( $this, 'set_from_email' ) );
 			add_filter( 'wp_mail_content_type', array( $this, 'set_content_type' ), 100 );
 			add_action( 'phpmailer_init',   array( $this, 'send_html' ) );
+			add_filter( 'mandrill_payload', array( $this, 'wpmandrill_compatibility' ) );
 
 			if ( ! is_admin() )
 				return;
@@ -80,8 +81,6 @@ if ( ! class_exists( 'WP_Better_Emails' ) ) {
 			add_filter( 'mce_external_plugins', array( $this, 'tinymce_plugins' ) );
 			add_filter( 'mce_buttons',          array( $this, 'tinymce_buttons' ) );
 			add_filter( 'tiny_mce_before_init', array( $this, 'tinymce_config' ) );
-
-			add_filter( 'mandrill_payload', array( $this, 'wpmandrill_compatibility' ) );
 
 		}
 
