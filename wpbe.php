@@ -3,7 +3,7 @@
 Plugin Name: WP Better Emails
 Plugin URI: http://wordpress.org/extend/plugins/wp-better-emails/
 Description: Beautify the default text/plain WP mails into fully customizable HTML emails.
-Version: 0.2.7
+Version: 0.2.8
 Author: ArtyShow
 Author URI: http://wordpress.org/extend/plugins/wp-better-emails/
 License: GPLv2
@@ -56,6 +56,7 @@ if ( ! class_exists( 'WP_Better_Emails' ) ) {
 			add_filter( 'wp_mail_from',         array( $this, 'set_from_email' ) );
 			add_filter( 'wp_mail_content_type', array( $this, 'set_content_type' ), 100 );
 			add_action( 'phpmailer_init',   array( $this, 'send_html' ) );
+			add_filter( 'mandrill_payload', array( $this, 'wpmandrill_compatibility' ) );
 
 			if ( ! is_admin() )
 				return;
@@ -80,8 +81,6 @@ if ( ! class_exists( 'WP_Better_Emails' ) ) {
 			add_filter( 'mce_external_plugins', array( $this, 'tinymce_plugins' ) );
 			add_filter( 'mce_buttons',          array( $this, 'tinymce_buttons' ) );
 			add_filter( 'tiny_mce_before_init', array( $this, 'tinymce_config' ) );
-
-			add_filter( 'mandrill_payload', array( $this, 'wpmandrill_compatibility' ) );
 
 		}
 
@@ -461,7 +460,7 @@ For any requests, please contact %admin_email%';
 		 */
 		function send_html( $phpmailer ) {
 
-			$phpmailer->AltBody = $this->process_email_text( $phpmailer->AltBody );
+			$phpmailer->AltBody = $this->process_email_text( $phpmailer->Body );
 
 			if ( $this->send_as_html ) {
 				$phpmailer->Body = $this->process_email_html( $phpmailer->Body );
